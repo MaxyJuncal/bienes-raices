@@ -192,23 +192,33 @@ img {
 }
 
 .contenedor-anuncios {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /*La propiedad flex-wrap de CSS especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas. Si la cobertura (wrap) está permitida, esta propiedad también te permite controlar la dirección en la cual serán apilados los elementos.*/
     
+    justify-content: space-between;
+    flex-wrap: wrap; /*La propiedad flex-wrap de CSS especifica si los elementos "hijos" son obligados a permanecer en una misma línea o pueden fluir en varias líneas. Si la cobertura (wrap) está permitida, esta propiedad también te permite controlar la dirección en la cual serán apilados los elementos.*/ 
+}
+@media (min-width:768px) {
+      .contenedor-anuncios {
+        display: flex;
+      }
 }
 
 .anuncio {
-    flex: 0 0 calc(33.3% - 1rem);
+    
+    border: 1px #b5b5b5 solid;
+    background-color:#f5f5f5;
+    margin-bottom: 3rem;
+
+}
+@media (min-width:768px) {
+    .anuncio {
+        flex: 0 0 calc(33.3% - 1rem);
     /*flex es la forma corta de usar flex-grow, flex-shrink y flex-basis
     en donde el primer valor es del grow el segundo del shrink y el tercero del basis*/
     /*flex-grow :hace que el contenido crezca si es posible*/
     /*flex-shrink:hace el contenido mas pequeño si es posible*/
     /*flex-basis:le da el tamaño base*/
-    border: 1px #b5b5b5 solid;
-    background-color:#f5f5f5;
-    margin-bottom: 3rem;
-
+    }
+      
 }
 .contenido-anuncio{
     padding: 2rem;
@@ -255,7 +265,7 @@ img {
 
 }
 .contenido-contacto {
-    flex: 1;    /**flex 1 detecta cuanto tmañao hay disponible, detecta cuanto elementos hay y realiza la divicion**/
+    flex: 0 0 95%;    /**flex 1 detecta cuanto tmañao hay disponible, detecta cuanto elementos hay y realiza la divicion**/
     color: #ffffff; /**por ej: si hay 1000px, y un elemento, divide 1000px por 1 y lo divide y lo asigna con 1000px, si hay 2 elementos, 1000px dividido 2 = 500 cada elemento **/
 
 }  
@@ -264,23 +274,28 @@ img {
 }    
 
 /*seccion inferior*/
+@media (min-width:768px) {
+    .seccion-inferior {
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog {
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales {
+        flex-basis: calc(40% - 2rem);
+}
 
-.seccion-inferior {
-    display: flex;
-    justify-content: space-between;
-}
-.seccion-inferior .blog {
-    flex-basis: 60%;
-}
-.seccion-inferior .testimoniales {
-    flex-basis: calc(40% - 2rem);
 
 }
 .entrada-blog {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    
+        margin-bottom: 2rem;
+}
+@media (min-width:768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 .entrada-blog:last-of-type {
     margin-bottom: 0;
@@ -348,10 +363,27 @@ img {
     margin: 0;
 }
 
+
 .contenedor-footer {
     padding:3rem 0;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
+    
+}
+@media (min-width:768px) {
+    .contenedor-footer {
+        
+        display: flex;
+        justify-content: space-between;
+    }     
+}
+.site-footer nav {
+    display: none;
+}
+@media (min-width:768px) {
+    .site-footer nav {
+        display: block;
+    }
+      
 }
 
 .copyright {
@@ -362,10 +394,13 @@ img {
 
 /*INTERIORES*/
 /*NOSOTROS*/
-.contenido-nosotros {
-    display: grid; /*grid nuevo standar remplazo del flex*/               
-    grid-template-columns: 50% 50%; /*define el diseño del contenido*/
-    grid-column-gap: 2rem;
+
+@media (min-width:768px) {
+    .contenido-nosotros {
+        display: grid; /*grid nuevo standar remplazo del flex*/               
+        grid-template-columns: 50% 50%; /*define el diseño del contenido*/
+        grid-column-gap: 2rem;
+    }
 }
 
 .texto-nosotros blockquote {
