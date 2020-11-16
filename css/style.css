@@ -17,6 +17,7 @@ body {
 /**GLOBALES**/
 
 .contenedor {
+    width: 95%;
     max-width: 120rem; /*se utiliz para definir la altura maxima del objeto */
     margin: 0 auto 0 auto; /*define los margenes */
 }
@@ -75,6 +76,14 @@ img {
     display: inline-block;   /*inline-block se puede aplicar margin y anchos pero no va a tomar todo el espacio disponible como si fuera un display:block */
     text-align: center;
     border: none;
+    display: block;
+    flex: 0 0 100%;
+}
+@media (min-width:768px) {
+    .boton {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
 }
 .boton-amarillo{
     background-color: #e08709;
@@ -105,6 +114,7 @@ img {
     display: flex; /*se utiliza para controlar las estructuras */
     flex-direction: column; /*especifica como coloar los elementos flex */
     justify-content:space-between; /*define cómo el navegador distribuye el espacio entre y alrededor de los items flex */
+     text-align: center;
 }
 
 .contenido-header h1 {
@@ -112,22 +122,42 @@ img {
     padding-bottom: 2rem; /*especifica el espacio en el margen inferior */
     max-width: 60rem;
     line-height: 1.8; /*insertat interlineado */
+   
+}
+@media (min-width:768px) {
+    .contenido-header {
+        text-align: left;
+    }
+      
 }
 
 .barra {
-
-    display: flex;
-    justify-content: space-between;
     padding-top: 3rem;
-    align-items: center; /* permite alinear los elementos*/
+}
 
+@media (min-width:768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+      
 }
 
 .navegacion a {
     color:white;
     text-decoration: none; /*decoracion del texto ej:subrayado*/
-    font-size: 1.8rem;
-    margin-right: 2rem; /*margen derecho*/
+    font-size: 2.2rem;
+   
+    display: block;
+}
+@media (min-width:786px) {
+      .navegacion a {
+          display: inline-block;
+           margin-right: 2rem; /*margen derecho*/
+           font-size: 2rem;
+      }
 }
 
 .navegacion a:hover {   /*el hover hce que al posicionarse con el cursor sobre el elemento cambie de color*/
@@ -140,16 +170,21 @@ img {
 
 /*Iconos Nosotros*/
 
-
-.iconos-nosotros {
-    display: flex;
-    justify-content: space-between;
-
+@media (min-width:768px) {
+    .iconos-nosotros {
+        display: flex;
+        justify-content: space-between;
+    
+    }
 }
-
 .iconos {
-    flex-basis: calc(33.3% - 1rem );/* calculo para dar el ancho de los elementos con flexbox*/
+    
     text-align: center;
+}
+@media (min-width:768px) {
+    .iconos {
+        flex-basis: calc(33.3% - 1rem );/* calculo para dar el ancho de los elementos con flexbox*/
+    }
 }
 
 .iconos h3 {
